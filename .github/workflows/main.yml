@@ -14,8 +14,6 @@ jobs:
       env:
         MY_NAME: "Simon Boisen"
     - run: java --version
-    - run: |
-         echo "deb https://dl.bintray.com/sbt/debian /" | sudo tee -a /etc/apt/sources.list.d/sbt.list
-         apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 642AC823
-         apt-get update
-         apt-get install sbt
+    - run: curl -L -O https://github.com/sbt/sbt/releases/download/v1.2.8/sbt-1.2.8.tgz
+    - run: tar -xf sbt-1.2.8.tgz
+    - run: ./sbt/bin/sbt version
